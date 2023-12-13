@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "batisteo.vscode-django",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "monosans.djlint",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "charliermarsh.ruff"
+  ]
+}
