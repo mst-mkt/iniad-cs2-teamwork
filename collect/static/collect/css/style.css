@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template:
+    "header header" 60px
+    "aside  main" 1fr
+    "footer footer" 60px / 300px 1fr;
+  min-height: 100vh;
+  margin: 0 auto;
+  gap: 4px;
+  width: min(100vh, 100vw);
+
+  > header {
+    grid-area: header;
+    background-color: #f9f9ff;
+  }
+
+  > aside {
+    grid-area: aside;
+    background-color: #fafafa;
+  }
+
+  > main {
+    grid-area: main;
+  }
+
+  > footer {
+    grid-area: footer;
+    background-color: #f9f9ff;
+  }
+}
