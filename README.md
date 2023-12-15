@@ -9,15 +9,17 @@ INIAD-cs2-teamwork
 <p style="display: inline" >
     <!--バックエンドのフレームワーク一覧-->
      <img src="https://img.shields.io/badge/-Django-092E20.svg?logo=django&style=for-the-badge">
+    <br>
     <!--バックエンドの言語一覧-->
     <img src="https://img.shields.io/badge/-Python-F2C63C.svg?logo=python&style=for-the-badge">
+    <br>
     <!--フロントエンドの言語一覧-->
     <img src="https://img.shields.io/badge/-HTML5-000000.svg?logo=HTML5&style=for-the-badge">
     <img src="https://img.shields.io/badge/-CSS3-1572B6.svg?logo=CSS3&style=for-the-badge">
 </p>
 
 ## ディレクトリ構成
-
+```
 ├─.vscode
 │  ├─extensions.json
 │  └─settings.json
@@ -54,5 +56,5 @@ INIAD-cs2-teamwork
 ├─manage.py
 ├─README.md
 └─requirements.txt
-
+```
 <p >[<a href="#top">Top</a>]</p>
