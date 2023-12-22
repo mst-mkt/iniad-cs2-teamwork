@@ -1,1 +1,2 @@
-from collect.models import Friend
+from collect.models.CustomUser import CustomUser, CustomUserManager
+from collect.models.Friend import Friend
