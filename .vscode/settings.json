@@ -28,6 +28,6 @@
   "emmet.includeLanguages": {
     "django-html": "html"
   },
-  "ruff.lint.args": ["--ignore=['F401']"],
+  "ruff.lint.args": ["--ignore=F401"],
   "auto-close-tag.activationOnLanguage": ["django-html"]
 }
