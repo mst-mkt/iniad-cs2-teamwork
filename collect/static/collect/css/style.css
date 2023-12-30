@@ -5,22 +5,20 @@ body {
 .container {
   display: grid;
   grid-template:
-    "header header" 60px
+    "header header" 108px
     "aside  main" 1fr
-    "footer footer" 60px / 300px 1fr;
+    "footer footer" 96px / 300px 1fr;
   min-height: 100vh;
   margin: 0 auto;
-  gap: 4px;
-  width: min(100vh, 100vw);
+  gap: 24px 48px;
+  width: min(110vh, 100vw);
 
   > header {
     grid-area: header;
-    background-color: #f9f9ff;
   }
 
   > aside {
     grid-area: aside;
-    background-color: #fafafa;
   }
 
   > main {
@@ -29,6 +27,101 @@ body {
 
   > footer {
     grid-area: footer;
-    background-color: #f9f9ff;
   }
+}
+
+.header {
+  margin-top: 12px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  > a {
+    gap: 8px;
+
+    > img {
+      object-fit: contain;
+    }
+  }
+
+  > button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.1s ease-in-out;
+
+    &:hover {
+      background-color: #ccc3;
+    }
+
+    &:active {
+      background-color: #ccc6;
+    }
+  }
+}
+
+.sidebar > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  > li {
+    padding: 0;
+    margin: 0;
+
+    > a {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      gap: 8px;
+      border-radius: 16px;
+      text-decoration: none;
+      color: #000;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    &:hover > a {
+      background-color: #f9f9ff;
+    }
+
+    &.active > a {
+      background-color: #f4f4fd;
+      pointer-events: none;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  padding: 16px;
+  align-items: center;
+  justify-content: center;
+  border-top: solid 1px #eee;
+
+  > p {
+    margin: 0;
+
+    > a {
+      color: #6d97fa;
+      text-decoration: none;
+    }
+  }
+}
+
+.card {
+  background-color: #a7adfb33;
+  box-sizing: border-box;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  box-shadow: 0 0 16px #3331;
+  padding: 32px;
 }
