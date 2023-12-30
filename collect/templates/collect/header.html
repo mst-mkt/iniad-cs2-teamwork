@@ -1,0 +1,11 @@
+{% load static %}
+{% load tabler_icons %}
+<header class="header">
+    <a href="{% url "index" %}">
+        <img src="{% static 'collect/img/logo.png' %}"
+             alt="PerQS's logo"
+             height="80px"
+             width="100%">
+    </a>
+    <button>{% tabler_icon "shadow" %}</button>
+</header>

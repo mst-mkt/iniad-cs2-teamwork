@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{% static 'collect/css/style.css' %}">
+        <title>PerQS</title>
+        <meta name="description" content="Personal Quick Stock">
+        <meta name="keywords" content="perqs">
+    </head>
+    <body>
+        <div class="container">
+            {% include "collect/sidebar.html" %}
+            {% include "collect/header.html" %}
+            <main>
+                {% block content %}
+                {% endblock content %}
+            </main>
+            {% include "collect/footer.html" %}
+        </div>
+    </body>
+</html>

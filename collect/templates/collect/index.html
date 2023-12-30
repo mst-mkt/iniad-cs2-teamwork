@@ -1,26 +1,4 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'collect/css/style.css' %}">
-    <title>PerQS</title>
-  </head>
-  <body>
-    <div class="container">
-      <aside>
-        a
-      </aside>
-      <header>
-        a
-      </header>
-      <main>
-        a
-      </main>
-      <footer>
-        a
-      </footer>
-    </div>
-  </body>
-</html>
+{% extends "collect/base.html" %}
+{% block content %}
+  {% include "collect/card.html" with user=user %}
+{% endblock content %}
