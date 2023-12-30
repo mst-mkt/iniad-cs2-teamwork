@@ -1,4 +1,5 @@
 django
+django-tabler-icons
 Pillow
 
 ruff
