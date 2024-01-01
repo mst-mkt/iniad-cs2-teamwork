@@ -2,18 +2,18 @@
 <aside class="sidebar">
     <ul>
         <li class="{% if request.path == '/' %}active{% endif %}">
-            <a href="{% url "index" %}}">{% tabler_icon 'home' %} ホーム</a>
+            <a href="{% url "index" %}">{% tabler_icon 'home' %} ホーム</a>
         </li>
-        <li class="{% if request.path == '/friends' %}active{% endif %}">
+        <li class="{% if request.path == '/friends/' %}active{% endif %}">
             <a href="{% url "friends" %}">{% tabler_icon 'users' %} フレンド</a>
         </li>
-        <li class="{% if request.path == '/notifications' %}active{% endif %}">
+        <li class="{% if request.path == '/notifications/' %}active{% endif %}">
             <a href="{% url "notifications" %}">{% tabler_icon 'bell' %} 通知</a>
         </li>
-        <li class="{% if request.path == '/messages' %}active{% endif %}">
+        <li class="{% if request.path == '/messages/' %}active{% endif %}">
             <a href="{% url "messages" %}">{% tabler_icon 'message' %} メッセージ</a>
         </li>
-        <li class="{% if request.path == '/settings' %}active{% endif %}">
+        <li class="{% if request.path == '/settings/' %}active{% endif %}">
             <a href="{% url "settings" %}">{% tabler_icon 'settings' %} 設定</a>
         </li>
     </ul>
