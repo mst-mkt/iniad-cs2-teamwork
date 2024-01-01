@@ -1,7 +1,7 @@
 from django.urls import path
 
-from . import views
+import collect.views.top as top
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("", top.index, name="index"),
 ]
