@@ -18,3 +18,6 @@ class Message(models.Model):
 
     def __str__(self):
         return self.text
+
+    class Meta:
+        app_label = "collect"
