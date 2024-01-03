@@ -1,21 +1,24 @@
-from django.db import models
-from django.conf import settings
+class NotificationManager:
 
-class Notification(models.Model):
-    TYPE_CHOICES = (
-        ('message', 'Message'),
-        ('follow', 'Follow'),
-        # その他の通知タイプ
-    )
-    recipient = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='notifications')
-    sender = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='sent_notifications')
-    type = models.CharField(max_length=20, choices=TYPE_CHOICES)
-    text = models.TextField()
-    is_read = models.BooleanField(default=False)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    def create_notification_content(self, event_data):
+        # トリガーイベントに基づいて通知内容を作成
+        # この関数は、イベントのデータを受け取り、通知の内容を準備します。
+        title = "新しいイベントがあります"
+        message = "詳細はこちら：{}".format(event_data)
+        # 通知内容の辞書を返します
+        return {"title": title, "message": message}
 
-    def __str__(self):
-        return f'Notification from {self.sender} to {self.recipient} - {self.type}'
+    def send_notification(self, notification_content, user):
+        # 通知をユーザーに送信するための実装
+        # ここでは例として、端的なプリント関数で代用していますが、
+        # 実際にはメールサーバーを使ったり、プッシュ通知APIを呼び出したりします。
+        print(f"Sending notification to {user}: {notification_content}")
 
-    class Meta:
-        ordering = ['-timestamp']
+# 他のファイルからこのクラスを利用して通知を送る例
+def event_handler(event):
+    # イベントが発生したときに呼ばれる処理を記述します。
+    notification_manager = NotificationManager()
+    notification_content = notification_manager.create_notification_content(event)
+    users = ["user1@example.com", "user2@example.com"]  # 通知を送るユーザーのリスト
+    for user in users:
+        notification_manager.send_notification(notification_content, user)

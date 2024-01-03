@@ -12,5 +12,4 @@ urlpatterns = [
     path("notifications/", notifications.index, name="notifications"),
     path("messages/", messages.index, name="messages"),
     path("settings/", settings.index, name="settings"),
-    path('notifications/', notifications, name='notifications'),
 ]
