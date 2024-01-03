@@ -1,6 +1,7 @@
 from django.contrib.auth.views import LogoutView
 from django.urls import path
 
+import collect.views.edit_profile as edit_profile
 import collect.views.friends as friends
 import collect.views.login as login
 import collect.views.messages as messages
@@ -18,4 +19,5 @@ urlpatterns = [
     path("notifications/", notifications.index, name="notifications"),
     path("messages/", messages.index, name="messages"),
     path("settings/", settings.index, name="settings"),
+    path("edit-profile/", edit_profile.edit_profile, name="edit-profile"),
 ]

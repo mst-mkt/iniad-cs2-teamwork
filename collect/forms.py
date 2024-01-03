@@ -17,3 +17,35 @@ class CustomAuthenticationForm(AuthenticationForm):
         model = CustomUser
         fields = ("username", "password")
         labels = {"username": "ユーザーネーム", "password": "パスワード"}
+
+
+class EditProfileForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = (
+            "username",
+            "email",
+            "profile",
+            "avatar",
+            "display_name",
+            "links",
+            "location",
+            "birth_date",
+            "company",
+        )
+        labels = {
+            "username": "ユーザーネーム",
+            "email": "メールアドレス",
+            "profile": "プロフィール",
+            "avatar": "アバター",
+            "display_name": "表示名",
+            "links": "リンク",
+            "location": "場所",
+            "birth_date": "誕生日",
+            "company": "会社",
+        }
+        widgets = {
+            "display_name": forms.TextInput(attrs={"placeholder": "表示名"}),
+            "avatar": forms.ClearableFileInput(attrs={"multiple": False}),
+            "birth_date": forms.DateInput(attrs={"type": "date"}),
+        }
