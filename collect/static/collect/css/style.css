@@ -138,6 +138,8 @@ body {
     ". profile profile" 5fr / 1fr 3fr auto;
   row-gap: 8px;
   column-gap: 36px;
+  position: relative;
+  overflow: hidden;
 
   > .avatar {
     grid-area: avatar;
@@ -234,6 +236,15 @@ body {
         color: #333;
       }
     }
+  }
+
+  > svg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #333;
+    opacity: 0.2;
+    transform: scale(1.3);
   }
 }
 
