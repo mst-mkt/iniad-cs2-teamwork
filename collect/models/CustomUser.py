@@ -66,6 +66,10 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     birth_date = models.DateField(blank=True, null=True)
     company = models.CharField(max_length=30, blank=True, null=True)
 
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    is_superuser = models.BooleanField(default=False)
+
     objects = CustomUserManager()
 
     USERNAME_FIELD = "username"
