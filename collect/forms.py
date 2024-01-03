@@ -10,3 +10,10 @@ class CustomUserCreationForm(UserCreationForm):
         model = CustomUser
         fields = ("username", "email")
         labels = {"username": "ユーザーネーム", "email": "メールアドレス"}
+
+
+class CustomAuthenticationForm(AuthenticationForm):
+    class Meta:
+        model = CustomUser
+        fields = ("username", "password")
+        labels = {"username": "ユーザーネーム", "password": "パスワード"}
