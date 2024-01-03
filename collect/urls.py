@@ -1,3 +1,4 @@
+from django.contrib.auth.views import LogoutView
 from django.urls import path
 
 import collect.views.friends as friends
@@ -12,6 +13,7 @@ urlpatterns = [
     path("", top.index, name="index"),
     path("signup/", signup.SignUpView.as_view(), name="signup"),
     path("login/", login.CustomLoginView.as_view(), name="login"),
+    path("logout/", LogoutView.as_view(), name="logout"),
     path("friends/", friends.index, name="friends"),
     path("notifications/", notifications.index, name="notifications"),
     path("messages/", messages.index, name="messages"),
