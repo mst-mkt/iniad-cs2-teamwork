@@ -39,6 +39,9 @@ class CustomUserManager(BaseUserManager):
             raise ValueError("Superuser must have is_staff=True.")
         return self._create_user(username, email, password, **extra_fields)
 
+    class Meta:
+        app_label = "collect"
+
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     """カスタムユーザーモデル"""
@@ -72,3 +75,4 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = "CustomUser"
         verbose_name_plural = "CustomUsers"
+        app_label = "collect"
