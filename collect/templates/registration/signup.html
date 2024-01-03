@@ -1,8 +1,8 @@
 {% extends "collect/base.html" %}
 {% block content %}
-    <form method="post">
+    <form method="post" class="form">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="登録" />
+        <input type="submit" value="登録" class="button" />
     </form>
 {% endblock content %}
