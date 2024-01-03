@@ -8,7 +8,9 @@ class Message(models.Model):
     text = models.TextField()
     posted_at = models.DateField()
     sender = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="sent_messages"
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="sent_messages",
     )
     receiver = models.ForeignKey(
         settings.AUTH_USER_MODEL,
