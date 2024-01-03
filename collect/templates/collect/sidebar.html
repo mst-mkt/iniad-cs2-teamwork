@@ -4,17 +4,29 @@
         <li class="{% if request.path == '/' %}active{% endif %}">
             <a href="{% url "index" %}">{% tabler_icon 'home' %} ホーム</a>
         </li>
-        <li class="{% if request.path == '/friends/' %}active{% endif %}">
-            <a href="{% url "friends" %}">{% tabler_icon 'users' %} フレンド</a>
-        </li>
-        <li class="{% if request.path == '/notifications/' %}active{% endif %}">
-            <a href="{% url "notifications" %}">{% tabler_icon 'bell' %} 通知</a>
-        </li>
-        <li class="{% if request.path == '/messages/' %}active{% endif %}">
-            <a href="{% url "messages" %}">{% tabler_icon 'message' %} メッセージ</a>
-        </li>
-        <li class="{% if request.path == '/settings/' %}active{% endif %}">
-            <a href="{% url "settings" %}">{% tabler_icon 'settings' %} 設定</a>
-        </li>
+        {% if user.is_authenticated %}
+            <li class="{% if request.path == '/friends/' %}active{% endif %}">
+                <a href="{% url "friends" %}">{% tabler_icon 'users' %} フレンド</a>
+            </li>
+            <li class="{% if request.path == '/notifications/' %}active{% endif %}">
+                <a href="{% url "notifications" %}">{% tabler_icon 'bell' %} 通知</a>
+            </li>
+            <li class="{% if request.path == '/messages/' %}active{% endif %}">
+                <a href="{% url "messages" %}">{% tabler_icon 'message' %} メッセージ</a>
+            </li>
+            <li class="{% if request.path == '/settings/' %}active{% endif %}">
+                <a href="{% url "settings" %}">{% tabler_icon 'settings' %} 設定</a>
+            </li>
+            <li>
+                <button onclick="logout()">{% tabler_icon 'logout' %} ログアウト</button>
+            </li>
+        {% else %}
+            <li class="{% if request.path == '/login/' %}active{% endif %}">
+                <a href="{% url "login" %}">{% tabler_icon 'login' %} ログイン</a>
+            </li>
+            <li class="{% if request.path == '/signup/' %}active{% endif %}">
+                <a href="{% url "signup" %}">{% tabler_icon 'user-plus' %} 新規登録</a>
+            </li>
+        {% endif %}
     </ul>
 </aside>
