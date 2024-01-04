@@ -1,1 +1,33 @@
-<div class="card">カード</div>
+{% load tabler_icons %}
+<div class="card">
+    <div class="avatar">
+        <img src="media/{{ user.avatar }}" alt="{{ user.display_name }}のアバター画像">
+    </div>
+    <h2 class="display_name">{{ user.display_name }}</h2>
+    <p class="username">@{{ user.username }}</p>
+    <div class="profile">
+        <p class="bio">{{ user.profile }}</p>
+        <p class="location">{% tabler_icon "map-pin" %}{{ user.location }}</p>
+        {% for link in user.links %}
+            <p class="link">
+                {% tabler_icon "link" %}
+                <a href="{{ link }}">{{ link }}</a>
+            </p>
+        {% endfor %}
+        <p class="birthday">{% tabler_icon "gift" %} {{ user.birth_date }}</p>
+        <p class="company">
+            {% tabler_icon "briefcase" %}
+            {% if user.company_url %}
+                <a href="{{ user.company_url }}">{{ user.company }}</a>
+            {% else %}
+                {{ user.company }}
+            {% endif %}
+        </p>
+    </div>
+    {% if my_card %}
+        <div class="edit">
+            <a href="{% url "edit-profile" %}">{% tabler_icon "edit" %}</a>
+        </div>
+        {{ svg|safe }}
+    {% endif %}
+</div>
