@@ -9,6 +9,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("collect.urls")),
     path('terms_of_service/', views.terms_of_service, name='terms_of_service'),
+    path('policy/', views.policy, name='policy'),
 ]
 
 if settings.DEBUG:
