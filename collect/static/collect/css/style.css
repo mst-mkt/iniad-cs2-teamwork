@@ -256,6 +256,30 @@ body {
   }
 }
 
+.share {
+  display: flex;
+  margin-top: 64px;
+  gap: 16px;
+
+  > button {
+    flex: 1 1 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 0;
+    border-radius: 24px;
+    padding: 8px 12px;
+    background-color: #dce9ff;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #c5d9ff;
+    }
+  }
+}
+
 .form {
   display: flex;
   flex-direction: column;

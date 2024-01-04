@@ -1,4 +1,9 @@
 {% extends "collect/base.html" %}
+{% load tabler_icons %}
 {% block content %}
-  {% include "collect/card.html" with user=user qr=svg my_card=True %}
+  {% include "collect/card.html" with user=user my_card=True %}
+  <div class="share">
+    <button>{% tabler_icon "link" %}リンクを共有</button>
+    <button>{% tabler_icon "qrcode" %} QRコードを表示</button>
+  </div>
 {% endblock content %}
