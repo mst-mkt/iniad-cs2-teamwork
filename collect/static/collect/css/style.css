@@ -145,6 +145,16 @@ body {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  > p {
+    text-align: center;
+    opacity: 0.8;
+    font-size: 1rem;
+  }
+
+  &:has(> p) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card {

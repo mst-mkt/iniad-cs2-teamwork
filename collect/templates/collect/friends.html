@@ -2,20 +2,32 @@
 {% block content %}
     <h1>フレンド一覧</h1>
     <div class="cards">
-        {% for friend in friends %}
-            {% include "collect/card.html" with user=friend %}
-        {% endfor %}
+        {% if friends|length > 0 %}
+            {% for friend in friends %}
+                {% include "collect/card.html" with user=friend %}
+            {% endfor %}
+        {% else %}
+            <p>フレンドはいません</p>
+        {% endif %}
     </div>
     <h2>リクエスト</h2>
     <div class="cards">
-        {% for request in friends_requests %}
-            {% include "collect/request_card.html" with user=request %}
-        {% endfor %}
+        {% if friends_requests|length > 0 %}
+            {% for request in friends_requests %}
+                {% include "collect/request_card.html" with user=request %}
+            {% endfor %}
+        {% else %}
+            <p>リクエストはありません</p>
+        {% endif %}
     </div>
     <h2>リクエストを送ったユーザー</h2>
     <div class="cards">
-        {% for pending in friends_pending %}
-            {% include "collect/pending_card.html" with user=pending %}
-        {% endfor %}
+        {% if friends_pending|length > 0 %}
+            {% for pending in friends_pending %}
+                {% include "collect/pending_card.html" with user=pending %}
+            {% endfor %}
+        {% else %}
+            <p>リクエストを送ったユーザーはいません</p>
+        {% endif %}
     </div>
 {% endblock content %}
