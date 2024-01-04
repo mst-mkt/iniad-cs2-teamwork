@@ -5,6 +5,7 @@ import collect.views.edit_profile as edit_profile
 import collect.views.friends as friends
 import collect.views.login as login
 import collect.views.messages as messages
+import collect.views.user_messages as user_messages
 import collect.views.notifications as notifications
 import collect.views.request as request
 import collect.views.settings as settings
@@ -20,6 +21,7 @@ urlpatterns = [
     path("friends/", friends.index, name="friends"),
     path("notifications/", notifications.index, name="notifications"),
     path("messages/", messages.index, name="messages"),
+    path("messages/<str:username>", user_messages.index, name="user_messages"),
     path("settings/", settings.index, name="settings"),
     path("edit-profile/", edit_profile.edit_profile, name="edit-profile"),
     path("users/<str:username>/", user.index, name="user"),
