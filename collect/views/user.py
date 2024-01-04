@@ -15,4 +15,4 @@ def index(request, username):
         | models.Q(user1_id=request.user.id, user2_id=user.id, is_approved=True)
     ).exists()
     context = {"user": user, "is_friend": is_friend}
-    return render(request, "collect/gages/user.html", context)
+    return render(request, "collect/pages/user.html", context)
