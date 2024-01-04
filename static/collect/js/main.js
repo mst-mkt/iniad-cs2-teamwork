@@ -13,8 +13,9 @@ const logout = () => {
     }
     return cookieValue;
   };
-  console.log("logout");
+
   const csrftoken = getCookie("csrftoken");
+
   confirm("ログアウトしますか？") &&
     fetch("/logout/", {
       method: "POST",
