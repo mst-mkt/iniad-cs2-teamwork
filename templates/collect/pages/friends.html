@@ -20,7 +20,7 @@
     <div class="cards">
         {% if friends_requests|length > 0 %}
             {% for request in friends_requests %}
-                {% include "collect/components/request_card.html" with user=request %}
+                {% include "collect/components/request-card.html" with user=request %}
             {% endfor %}
         {% else %}
             <p>リクエストはありません</p>
@@ -30,7 +30,7 @@
     <div class="cards">
         {% if friends_pending|length > 0 %}
             {% for pending in friends_pending %}
-                {% include "collect/components/pending_card.html" with user=pending %}
+                {% include "collect/components/pending-card.html" with user=pending %}
             {% endfor %}
         {% else %}
             <p>リクエストを送ったユーザーはいません</p>
