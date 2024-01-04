@@ -1,0 +1,48 @@
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100svw;
+  height: 100svh;
+  background-color: transparent;
+  backdrop-filter: none;
+
+  &.is-active {
+    display: grid;
+    place-items: center;
+    background-color: #0004;
+    backdrop-filter: blur(4px);
+  }
+
+  > .modal_content {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 64px;
+    position: relative;
+
+    > button {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+      padding: 8px;
+      border-radius: 8px;
+
+      &:hover {
+        background-color: #0000000c;
+      }
+
+      > svg {
+        display: block;
+        color: #333;
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}

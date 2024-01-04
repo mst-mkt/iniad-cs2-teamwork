@@ -11,7 +11,7 @@ def index(request):
         img = qrcode.make(
             f"http://localhost:8000/users/{request.user.username}",
             image_factory=factory,
-            box_size=8,
+            box_size=24,
         )
         stream = BytesIO()
         img.save(stream)

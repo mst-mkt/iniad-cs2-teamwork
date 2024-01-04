@@ -4,11 +4,20 @@
 {% block css %}
   <link rel="stylesheet" href="{% static 'collect/css/card.css' %}">
   <link rel="stylesheet" href="{% static 'collect/css/share.css' %}">
+  <link rel="stylesheet" href="{% static 'collect/css/modal.css' %}">
 {% endblock css %}
+{% block js %}
+  <script type="text/javascript"  src="{% static 'collect/js/modal.js' %}"></script>
 {% block content %}
   {% include "collect/components/card.html" with user=user my_card=True %}
   <div class="share">
     <button>{% tabler_icon "link" %}リンクを共有</button>
-    <button>{% tabler_icon "qrcode" %} QRコードを表示</button>
+    <button onclick="openModal()">{% tabler_icon "qrcode" %} QRコードを表示</button>
+  </div>
+  <div class="modal">
+    <div class="modal_content">
+      <button onclick="closeModal()">{% tabler_icon "x" %}</button>
+      {{ svg|safe }}
+    </div>
   </div>
 {% endblock content %}
