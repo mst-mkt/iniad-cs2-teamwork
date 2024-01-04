@@ -1,3 +1,9 @@
 {% extends "collect/base.html" %}
 {% block content %}
+    <h1>フレンド一覧</h1>
+    <div class="cards">
+        {% for friend in friends %}
+            {% include "collect/card.html" with user=friend %}
+        {% endfor %}
+    </div>
 {% endblock content %}
