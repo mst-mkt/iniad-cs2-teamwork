@@ -57,7 +57,7 @@
 
     > .display_name {
       grid-area: name;
-      font-size: 6cqmin;
+      font-size: 5cqmin;
       font-weight: bold;
       margin: 0;
       align-self: self-end;
@@ -68,7 +68,7 @@
 
     > .username {
       grid-area: username;
-      font-size: 3cqmin;
+      font-size: 2.5cqmin;
       margin: 0;
       opacity: 0.8;
       text-overflow: ellipsis;
