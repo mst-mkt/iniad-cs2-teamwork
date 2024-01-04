@@ -1,4 +1,8 @@
 {% extends "collect/base.html" %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'collect/css/form.css' %}">
+{% endblock css %}
 {% block content %}
     <form method="post" class="form">
         {% csrf_token %}

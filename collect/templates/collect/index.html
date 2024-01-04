@@ -1,5 +1,10 @@
 {% extends "collect/base.html" %}
 {% load tabler_icons %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'collect/css/card.css' %}">
+  <link rel="stylesheet" href="{% static 'collect/css/share.css' %}">
+{% endblock css %}
 {% block content %}
   {% include "collect/card.html" with user=user my_card=True %}
   <div class="share">

@@ -1,0 +1,148 @@
+.cards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  > p {
+    text-align: center;
+    opacity: 0.8;
+    font-size: 1rem;
+  }
+
+  &:has(> p) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  container-type: inline-size;
+
+  > .card_inner {
+    background-color: #a7adfb33;
+    box-sizing: border-box;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 4cqmin;
+    box-shadow: 0 0 2cqmin #3331;
+    padding: 6cqmin;
+    display: grid;
+    grid-template:
+      "avatar name     edit   " 2fr
+      "avatar username .      " 2fr
+      ".      profile  profile" 5fr
+      / 1fr 3fr auto;
+    row-gap: 1cqmin;
+    column-gap: 4cqmin;
+    position: relative;
+    overflow: hidden;
+    font-size: 2cqmin;
+
+    > .avatar {
+      grid-area: avatar;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      aspect-ratio: 1;
+
+      > img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    > .display_name {
+      grid-area: name;
+      font-size: 6cqmin;
+      font-weight: bold;
+      margin: 0;
+      align-self: self-end;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    > .username {
+      grid-area: username;
+      font-size: 3cqmin;
+      margin: 0;
+      opacity: 0.8;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    > .profile {
+      grid-area: profile;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1cqmin;
+      font-size: 1.6cqmin;
+
+      > .bio {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        font-size: 2.4cqmin;
+        margin: 0;
+      }
+
+      > p:has(> svg) {
+        display: flex;
+        align-items: center;
+        gap: 1cqmin;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 2cqmin;
+
+        > a {
+          color: #6d97fa;
+          text-decoration: none;
+          font-weight: bold;
+        }
+
+        > svg {
+          color: #333;
+          width: 3.6cqmin;
+          height: 3.6cqmin;
+        }
+      }
+    }
+
+    > .edit {
+      border-radius: 1cqmin;
+      height: fit-content;
+      width: fit-content;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover {
+        background-color: #0000000c;
+      }
+
+      &:active {
+        background-color: #00000014;
+      }
+
+      > a {
+        display: block;
+        line-height: 1cqmin;
+        padding: 1cqmin;
+
+        > svg {
+          color: #333;
+          width: 4cqmin;
+          height: 4cqmin;
+        }
+      }
+    }
+  }
+}

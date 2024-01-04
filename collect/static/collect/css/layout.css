@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 2px;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template:
+    "header header" 108px
+    "aside  main  " 1fr
+    "footer footer" 96px
+    / min(300px, 30vw) 1fr;
+  min-height: 100vh;
+  margin: 0 auto;
+  gap: 24px 48px;
+  width: min(128vh, 92vw);
+
+  > header {
+    grid-area: header;
+  }
+
+  > aside {
+    grid-area: aside;
+  }
+
+  > main {
+    grid-area: main;
+  }
+
+  > footer {
+    grid-area: footer;
+  }
+
+  @media screen and (width < 80vh) {
+    grid-template:
+      "header header" 108px
+      "main main" 1fr
+      "footer footer" 96px / 1fr;
+
+    > aside {
+      display: none;
+    }
+  }
+}
+
+.header {
+  margin-top: 12px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  > a {
+    gap: 8px;
+
+    > img {
+      object-fit: contain;
+    }
+  }
+
+  > button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.1s ease-in-out;
+
+    &:hover {
+      background-color: #ccc3;
+    }
+
+    &:active {
+      background-color: #ccc6;
+    }
+  }
+}
+
+.sidebar {
+  height: fit-content;
+  position: sticky;
+  top: 48px;
+
+  > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    > li {
+      padding: 0;
+      margin: 0;
+
+      > a,
+      > button {
+        display: flex;
+        align-items: center;
+        padding: 12px 16px;
+        gap: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        border: 0;
+        background-color: transparent;
+        border-radius: 16px;
+        text-decoration: none;
+        color: #000;
+        transition: background-color 0.2s ease-in-out;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      &:hover > :is(a, button) {
+        background-color: #f9f9ff;
+      }
+
+      &.active > :is(a, button) {
+        background-color: #f4f4fd;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  padding: 16px;
+  align-items: center;
+  justify-content: center;
+  border-top: solid 1px #eee;
+
+  > p {
+    margin: 0;
+
+    > a {
+      color: #6d97fa;
+      text-decoration: none;
+    }
+  }
+}

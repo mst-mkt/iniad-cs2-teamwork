@@ -1,4 +1,10 @@
 {% extends "collect/base.html" %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'collect/css/card.css' %}">
+    <link rel="stylesheet" href="{% static 'collect/css/card_mini.css' %}">
+    <link rel="stylesheet" href="{% static 'collect/css/friend.css' %}">
+{% endblock css %}
 {% block content %}
     <h1>フレンド一覧</h1>
     <div class="cards">

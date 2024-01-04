@@ -4,7 +4,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="{% static 'collect/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'collect/css/layout.css' %}">
+        {% block css %}
+        {% endblock css %}
         <title>PerQS</title>
         <meta name="description" content="Personal Quick Stock">
         <meta name="keywords" content="perqs">
