@@ -1,5 +1,15 @@
 body {
   margin: 0;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 2px;
+  }
 }
 
 .container {
