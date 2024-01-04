@@ -1,0 +1,22 @@
+.notification {
+  display: flex;
+  flex-direction: column;
+  background-color: #ecf9ff;
+  padding: 16px 24px;
+  gap: 8px;
+  border-radius: 16px;
+
+  > h2 {
+    display: flex;
+    margin: 0;
+    gap: 12px;
+    align-items: center;
+
+    > svg {
+      display: block;
+      color: #333;
+      width: 48px;
+      height: 48px;
+    }
+  }
+}

@@ -1,3 +1,15 @@
 {% extends "collect/layouts/base.html" %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static "collect/css/notification.css" %}">
+{% endblock css %}
 {% block content %}
+    <h1>通知</h1>
+    {% if notifications|length > 0 %}
+        {% for notification in notifications %}
+            {% include "collect/components/notification.html" with notification=notification %}
+        {% endfor %}
+    {% else %}
+        <p>通知はありません</p>
+    {% endif %}
 {% endblock content %}
