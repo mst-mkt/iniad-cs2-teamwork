@@ -69,6 +69,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
             ],
         },
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
     },
 ]
 
