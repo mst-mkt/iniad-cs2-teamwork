@@ -8,10 +8,12 @@
 {% endblock css %}
 {% block js %}
   <script type="text/javascript"  src="{% static 'collect/js/modal.js' %}"></script>
+  <script type="text/javascript"  src="{% static 'collect/js/share.js' %}"></script>
+{% endblock js %}
 {% block content %}
   {% include "collect/components/card.html" with user=user my_card=True %}
   <div class="share">
-    <button>{% tabler_icon "link" %}リンクを共有</button>
+    <button onclick="userShare('{{ user.username }}')">{% tabler_icon "link" %}リンクを共有</button>
     <button onclick="openModal()">{% tabler_icon "qrcode" %} QRコードを表示</button>
   </div>
   <div class="modal">
