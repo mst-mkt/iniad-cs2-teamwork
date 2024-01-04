@@ -46,6 +46,6 @@ class EditProfileForm(forms.ModelForm):
         }
         widgets = {
             "display_name": forms.TextInput(attrs={"placeholder": "表示名"}),
-            "avatar": forms.ClearableFileInput(attrs={"multiple": False}),
+            "avatar": forms.FileInput(attrs={"multiple": False}),
             "birth_date": forms.DateInput(attrs={"type": "date"}),
         }
