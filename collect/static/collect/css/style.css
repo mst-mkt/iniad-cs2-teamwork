@@ -200,7 +200,7 @@ body {
 
     > .display_name {
       grid-area: name;
-      font-size: 4cqmin;
+      font-size: 6cqmin;
       font-weight: bold;
       margin: 0;
       align-self: self-end;
@@ -211,7 +211,7 @@ body {
 
     > .username {
       grid-area: username;
-      font-size: 2.4cqmin;
+      font-size: 3cqmin;
       margin: 0;
       opacity: 0.8;
       text-overflow: ellipsis;
