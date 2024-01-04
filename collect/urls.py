@@ -9,6 +9,7 @@ import collect.views.notifications as notifications
 import collect.views.settings as settings
 import collect.views.signup as signup
 import collect.views.top as top
+import collect.views.user as user
 
 urlpatterns = [
     path("", top.index, name="index"),
@@ -20,4 +21,5 @@ urlpatterns = [
     path("messages/", messages.index, name="messages"),
     path("settings/", settings.index, name="settings"),
     path("edit-profile/", edit_profile.edit_profile, name="edit-profile"),
+    path("users/<str:username>/", user.index, name="user"),
 ]
