@@ -1,6 +1,7 @@
 django
 django-tabler-icons
 Pillow
+qrcode
 
 ruff
 djlint
