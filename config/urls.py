@@ -6,6 +6,7 @@ from django.urls import include, path
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("collect.urls")),
+    path('terms_of_service/', views.terms_of_service, name='terms_of_service'),
 ]
 
 if settings.DEBUG:
