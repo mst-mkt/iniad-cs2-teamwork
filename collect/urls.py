@@ -6,6 +6,7 @@ import collect.views.friends as friends
 import collect.views.login as login
 import collect.views.messages as messages
 import collect.views.notifications as notifications
+import collect.views.request as request
 import collect.views.settings as settings
 import collect.views.signup as signup
 import collect.views.top as top
@@ -22,4 +23,8 @@ urlpatterns = [
     path("settings/", settings.index, name="settings"),
     path("edit-profile/", edit_profile.edit_profile, name="edit-profile"),
     path("users/<str:username>/", user.index, name="user"),
+    path("users/<str:username>/request/", request.index, name="request"),
+    path("users/<str:username>/request/accept/", request.accept, name="accept"),
+    path("users/<str:username>/request/reject/", request.reject, name="reject"),
+    path("users/<str:username>/request/cancel/", request.cancel, name="cancel"),
 ]

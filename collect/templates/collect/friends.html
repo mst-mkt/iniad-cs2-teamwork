@@ -1,3 +1,21 @@
 {% extends "collect/base.html" %}
 {% block content %}
+    <h1>フレンド一覧</h1>
+    <div class="cards">
+        {% for friend in friends %}
+            {% include "collect/card.html" with user=friend %}
+        {% endfor %}
+    </div>
+    <h2>リクエスト</h2>
+    <div class="cards">
+        {% for request in friends_requests %}
+            {% include "collect/request_card.html" with user=request %}
+        {% endfor %}
+    </div>
+    <h2>リクエストを送ったユーザー</h2>
+    <div class="cards">
+        {% for pending in friends_pending %}
+            {% include "collect/pending_card.html" with user=pending %}
+        {% endfor %}
+    </div>
 {% endblock content %}

@@ -1,34 +1,36 @@
 {% load tabler_icons %}
 {% load static %}
 <div class="card">
-    <div class="avatar">
-        <img src="/media/{{ user.avatar }}" alt="{{ user.display_name }}のアバター画像">
-    </div>
-    <h2 class="display_name">{{ user.display_name }}</h2>
-    <p class="username">@{{ user.username }}</p>
-    <div class="profile">
-        {% if user.profile %}<p class="bio">{{ user.profile }}</p>{% endif %}
-        {% if user.location %}
-            <p class="location">{% tabler_icon "map-pin" %}{{ user.location }}</p>
-        {% endif %}
-        {% for link in user.links %}
-            {% if forloop.counter0 < 2 %}
-                <p class="link">
-                    {% tabler_icon "link" %}
-                    <a href="{{ link }}">{{ link }}</a>
-                </p>
-            {% endif %}
-        {% endfor %}
-        {% if user.birth_date %}
-            <p class="birthday">{% tabler_icon "gift" %} {{ user.birth_date }}</p>
-        {% endif %}
-        {% if user.company %}
-            <p class="company">{% tabler_icon "briefcase" %} {{ user.company }}</p>
-        {% endif %}
-    </div>
-    {% if my_card %}
-        <div class="edit">
-            <a href="{% url "edit-profile" %}">{% tabler_icon "edit" %}</a>
+    <div class="card_inner">
+        <div class="avatar">
+            <img src="/media/{{ user.avatar }}" alt="{{ user.display_name }}のアバター画像">
         </div>
-    {% endif %}
+        <h2 class="display_name">{{ user.display_name }}</h2>
+        <p class="username">@{{ user.username }}</p>
+        <div class="profile">
+            {% if user.profile %}<p class="bio">{{ user.profile }}</p>{% endif %}
+            {% if user.location %}
+                <p class="location">{% tabler_icon "map-pin" %}{{ user.location }}</p>
+            {% endif %}
+            {% for link in user.links %}
+                {% if forloop.counter0 < 2 %}
+                    <p class="link">
+                        {% tabler_icon "link" %}
+                        <a href="{{ link }}">{{ link }}</a>
+                    </p>
+                {% endif %}
+            {% endfor %}
+            {% if user.birth_date %}
+                <p class="birthday">{% tabler_icon "gift" %} {{ user.birth_date }}</p>
+            {% endif %}
+            {% if user.company %}
+                <p class="company">{% tabler_icon "briefcase" %} {{ user.company }}</p>
+            {% endif %}
+        </div>
+        {% if my_card %}
+            <div class="edit">
+                <a href="{% url "edit-profile" %}">{% tabler_icon "edit" %}</a>
+            </div>
+        {% endif %}
+    </div>
 </div>

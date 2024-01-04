@@ -6,12 +6,13 @@ body {
   display: grid;
   grid-template:
     "header header" 108px
-    "aside  main" 1fr
-    "footer footer" 96px / 300px 1fr;
+    "aside  main  " 1fr
+    "footer footer" 96px
+    / min(300px, 30vw) 1fr;
   min-height: 100vh;
   margin: 0 auto;
   gap: 24px 48px;
-  width: min(120vh, 92vw);
+  width: min(128vh, 92vw);
 
   > header {
     grid-area: header;
@@ -27,6 +28,17 @@ body {
 
   > footer {
     grid-area: footer;
+  }
+
+  @media screen and (width < 80vh) {
+    grid-template:
+      "header header" 108px
+      "main main" 1fr
+      "footer footer" 96px / 1fr;
+
+    > aside {
+      display: none;
+    }
   }
 }
 
@@ -129,32 +141,161 @@ body {
   }
 }
 
-.card {
-  background-color: #a7adfb33;
-  box-sizing: border-box;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 36px;
-  box-shadow: 0 0 16px #3331;
-  padding: 48px;
+.cards {
   display: grid;
-  grid-template:
-    "avatar name edit" 2fr
-    "avatar username ." 2fr
-    ". profile profile" 5fr / 1fr 3fr auto;
-  row-gap: 8px;
-  column-gap: 36px;
-  position: relative;
-  overflow: hidden;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.card {
+  container-type: inline-size;
+
+  > .card_inner {
+    background-color: #a7adfb33;
+    box-sizing: border-box;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 4cqmin;
+    box-shadow: 0 0 2cqmin #3331;
+    padding: 6cqmin;
+    display: grid;
+    grid-template:
+      "avatar name     edit   " 2fr
+      "avatar username .      " 2fr
+      ".      profile  profile" 5fr
+      / 1fr 3fr auto;
+    row-gap: 1cqmin;
+    column-gap: 4cqmin;
+    position: relative;
+    overflow: hidden;
+    font-size: 2cqmin;
+
+    > .avatar {
+      grid-area: avatar;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      aspect-ratio: 1;
+
+      > img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    > .display_name {
+      grid-area: name;
+      font-size: 4cqmin;
+      font-weight: bold;
+      margin: 0;
+      align-self: self-end;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    > .username {
+      grid-area: username;
+      font-size: 2.4cqmin;
+      margin: 0;
+      opacity: 0.8;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    > .profile {
+      grid-area: profile;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1cqmin;
+      font-size: 1.6cqmin;
+
+      > .bio {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        font-size: 2.4cqmin;
+        margin: 0;
+      }
+
+      > p:has(> svg) {
+        display: flex;
+        align-items: center;
+        gap: 1cqmin;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 2cqmin;
+
+        > a {
+          color: #6d97fa;
+          text-decoration: none;
+          font-weight: bold;
+        }
+
+        > svg {
+          color: #333;
+          width: 3.6cqmin;
+          height: 3.6cqmin;
+        }
+      }
+    }
+
+    > .edit {
+      border-radius: 1cqmin;
+      height: fit-content;
+      width: fit-content;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover {
+        background-color: #0000000c;
+      }
+
+      &:active {
+        background-color: #00000014;
+      }
+
+      > a {
+        display: block;
+        line-height: 1cqmin;
+        padding: 1cqmin;
+
+        > svg {
+          color: #333;
+          width: 4cqmin;
+          height: 4cqmin;
+        }
+      }
+    }
+  }
+}
+
+.card_mini {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #f9f9ff;
+  width: 100%;
 
   > .avatar {
-    grid-area: avatar;
+    flex: 0 0 48px;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+    place-content: center;
+    width: 48px;
     aspect-ratio: 1;
 
     > img {
@@ -165,94 +306,52 @@ body {
     }
   }
 
-  > .display_name {
-    grid-area: name;
-    font-size: 2.4rem;
-    font-weight: bold;
-    margin: 0;
-    align-self: self-end;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  > .username {
-    grid-area: username;
-    font-size: 1.2rem;
-    margin: 0;
-    opacity: 0.8;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  > .profile {
-    grid-area: profile;
-    height: 100%;
-    width: 100%;
+  > .info {
+    flex: 1 1 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 4px;
 
-    > .bio {
-      display: -webkit-box;
-      overflow: hidden;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      margin: 0 0 12px;
-      font-size: 1rem;
+    > .name {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: bold;
     }
 
-    > p:has(> svg) {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    > .username {
       margin: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
       font-size: 0.8rem;
-
-      > a {
-        color: #6d97fa;
-        text-decoration: none;
-        font-weight: bold;
-      }
+      opacity: 0.8;
     }
   }
 
-  > .edit {
-    border-radius: 8px;
-    height: fit-content;
-    width: fit-content;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-
-    &:hover {
-      background-color: #0000000c;
-    }
-
-    &:active {
-      background-color: #00000014;
-    }
+  > .action {
+    flex: 0 0 fit-content;
+    display: flex;
+    gap: 4px;
 
     > a {
-      display: block;
-      line-height: 1rem;
-      padding: 12px;
+      display: flex;
+      place-items: center;
+      padding: 4px;
+      border-radius: 50%;
+      background-color: #dce9ff;
+      cursor: pointer;
 
       > svg {
-        color: #333;
+        width: 20px;
+        height: 20px;
+        color: #fff;
+      }
+
+      &:first-child {
+        background-color: #2ab512;
+      }
+
+      &:last-child {
+        background-color: #f64121;
       }
     }
-  }
-
-  > svg {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: #333;
-    opacity: 0.2;
-    transform: scale(1.3);
   }
 }
 

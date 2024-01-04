@@ -1,0 +1,14 @@
+{% load tabler_icons %}
+<div class="card_mini">
+    <div class="avatar">
+        <img src="/media/{{ user.avatar }}" alt="{{ user.display_name }}のアバター画像">
+    </div>
+    <div class="info">
+        <div class="name">{{ user.display_name }}</div>
+        <div class="username">@{{ user.username }}</div>
+    </div>
+    <div class="action">
+        <a href="{% url "accept" user.username %}">{% tabler_icon "check" %}</a>
+        <a href="{% url "reject" user.username %}">{% tabler_icon "x" %}</a>
+    </div>
+</div>
