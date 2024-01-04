@@ -11,4 +11,4 @@ def edit_profile(request):
             return redirect("index")
     else:
         form = EditProfileForm(instance=request.user)
-    return render(request, "collect/edit-profile.html", {"form": form})
+    return render(request, "collect/pages/edit-profile.html", {"form": form})

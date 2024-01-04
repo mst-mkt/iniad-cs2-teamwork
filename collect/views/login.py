@@ -7,7 +7,7 @@ from ..forms import CustomAuthenticationForm
 
 class CustomLoginView(LoginView):
     form_class = CustomAuthenticationForm
-    template_name = "registration/login.html"
+    template_name = "collect/pages/login.html"
     success_url = reverse_lazy("index")
 
     def get_success_url(self):

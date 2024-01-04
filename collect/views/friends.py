@@ -24,4 +24,4 @@ def index(request):
         "friends_requests": friends_requests,
         "friends_pending": friends_pending,
     }
-    return render(request, "collect/friends.html", context)
+    return render(request, "collect/pages/friends.html", context)

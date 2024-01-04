@@ -14,13 +14,13 @@
     </head>
     <body>
         <div class="container">
-            {% include "collect/sidebar.html" %}
-            {% include "collect/header.html" %}
+            {% include "collect/components/sidebar.html" %}
+            {% include "collect/components/header.html" %}
             <main>
                 {% block content %}
                 {% endblock content %}
             </main>
-            {% include "collect/footer.html" %}
+            {% include "collect/components/footer.html" %}
         </div>
     </body>
 </html>

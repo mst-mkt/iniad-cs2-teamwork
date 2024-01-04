@@ -20,6 +20,6 @@ def index(request):
             "user": request.user,
             "svg": svg,
         }
-        return render(request, "collect/index.html", context)
+        return render(request, "collect/pages/index.html", context)
     else:
         return redirect("login")

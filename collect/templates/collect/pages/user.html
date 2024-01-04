@@ -1,0 +1,14 @@
+{% extends "collect/layouts/base.html" %}
+{% load tabler_icons %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'collect/css/card.css' %}">
+    <link rel="stylesheet" href="{% static 'collect/css/card_mini.css' %}">
+{% endblock css %}
+{% block content %}
+    {% if is_friend %}
+        {% include "collect/components/card.html" with user=user %}
+    {% else %}
+        {% include "collect/components/user-info.html" with user=user %}
+    {% endif %}
+{% endblock content %}

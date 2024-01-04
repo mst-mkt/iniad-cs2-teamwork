@@ -1,9 +1,0 @@
-{% extends "collect/base.html" %}
-{% load tabler_icons %}
-{% block content %}
-    {% if is_friend %}
-        {% include "collect/card.html" with user=user %}
-    {% else %}
-        {% include "collect/user-info.html" with user=user %}
-    {% endif %}
-{% endblock content %}

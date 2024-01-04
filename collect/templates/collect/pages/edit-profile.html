@@ -1,12 +1,12 @@
-{% extends "collect/base.html" %}
+{% extends "collect/layouts/base.html" %}
 {% load static %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'collect/css/form.css' %}">
 {% endblock css %}
 {% block content %}
-    <form method="post" class="form">
+    <form method="post" class="form" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="登録" class="button" />
+        <input type="submit" value="更新" class="button" />
     </form>
 {% endblock content %}
