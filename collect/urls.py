@@ -5,13 +5,15 @@ import collect.views.edit_profile as edit_profile
 import collect.views.friends as friends
 import collect.views.login as login
 import collect.views.messages as messages
-import collect.views.user_messages as user_messages
 import collect.views.notifications as notifications
+import collect.views.policy as policy
 import collect.views.request as request
 import collect.views.settings as settings
 import collect.views.signup as signup
+import collect.views.terms_of_service as terms_of_service
 import collect.views.top as top
 import collect.views.user as user
+import collect.views.user_messages as user_messages
 
 urlpatterns = [
     path("", top.index, name="index"),
@@ -29,4 +31,6 @@ urlpatterns = [
     path("users/<str:username>/request/accept/", request.accept, name="accept"),
     path("users/<str:username>/request/reject/", request.reject, name="reject"),
     path("users/<str:username>/request/cancel/", request.cancel, name="cancel"),
+    path("terms-of-service/", terms_of_service.index, name="terms-of-service"),
+    path("policy/", policy.index, name="policy"),
 ]
