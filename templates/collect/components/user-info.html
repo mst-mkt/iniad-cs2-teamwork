@@ -8,7 +8,7 @@
         <p class="username">@{{ user.username }}</p>
     </div>
 </div>
-<div>
+<div class="user_action">
     <a href="{% url "request" user.username %}">{% tabler_icon "user-plus" %}友達申請</a>
-    <a href="{% url "index" %}">{% tabler_icon "message" %}メッセージ</a>
+    <a href="{% url "user_messages" user.username %}">{% tabler_icon "message" %}メッセージ</a>
 </div>

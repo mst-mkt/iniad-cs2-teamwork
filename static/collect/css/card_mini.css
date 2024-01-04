@@ -5,6 +5,7 @@
   padding: 16px;
   border-radius: 16px;
   background-color: #f9f9ff;
+  box-sizing: border-box;
   width: 100%;
 
   > .avatar {
