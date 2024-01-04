@@ -29,5 +29,6 @@
     "django-html": "html"
   },
   "ruff.lint.args": ["--ignore=F401"],
-  "auto-close-tag.activationOnLanguage": ["django-html"]
+  "auto-close-tag.activationOnLanguage": ["django-html"],
+  "djlint.ignore": ["H006"]
 }
